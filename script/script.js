@@ -318,23 +318,3 @@ const navLinks = document.querySelector('.nav-links');
 menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
-
-// JavaScriptエディタの初期化
-document.addEventListener('DOMContentLoaded', () => {
-    const editor = ace.edit("js-editor");
-    editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/javascript");
-    editor.setValue("// ここにJavaScriptコードを入力してください\n\nconsole.log('Hello, React!');");
-
-    const runButton = document.createElement('button');
-    runButton.textContent = 'コードを実行';
-    runButton.onclick = () => {
-        try {
-            eval(editor.getValue());
-        } catch (error) {
-            console.error('実行エラー:', error);
-        }
-    };
-
-    document.getElementById('js-editor').parentNode.insertBefore(runButton, editor.container.nextSibling);
-});

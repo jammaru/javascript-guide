@@ -38,9 +38,9 @@ h3 { font-size: 1.5em; }
 
 p { margin-bottom: 15px; }
 
+/* ヘッダーとロゴのスタイル */
 header {
     background-color: var(--secondary-color);
-    color: #fff;
     padding: 1em 0;
     position: fixed;
     width: 100%;
@@ -50,12 +50,13 @@ header {
 
 #main-nav .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
 .logo {
-    height: 40px;
+    height: 60px; /* ロゴサイズを大きく */
+    width: auto;
 }
 
 #main-nav ul {
@@ -76,6 +77,13 @@ header {
 
 #main-nav ul li a:hover {
     color: var(--primary-color);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .logo {
+        height: 50px; /* スマートフォンでも適切なサイズに */
+    }
 }
 
 section {
