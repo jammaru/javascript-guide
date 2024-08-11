@@ -103,6 +103,7 @@ section {
 #hero h1 {
     font-size: 3em;
     margin-bottom: 20px;
+    color: #fff; /* h1 のテキストを白色に設定 */
 }
 
 pre {
@@ -112,6 +113,23 @@ pre {
     border-radius: 5px;
     overflow-x: auto;
     margin-bottom: 20px;
+}
+
+.image-container {
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.feature-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.feature-image:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .fade-in {
