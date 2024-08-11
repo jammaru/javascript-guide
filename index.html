@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript マスターへの道 - 技術解説とチュートリアル</title>
+    <link rel="stylesheet" href="css\main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header>
+        <nav id="main-nav">
+            <div class="container">
+                <img src="logo.png" alt="JavaScript マスターへの道 ロゴ" class="logo">
+                <ul>
+                    <li><a href="#intro">はじめに</a></li>
+                    <li><a href="#basics">基礎知識</a></li>
+                    <li><a href="#advanced">高度なトピック</a></li>
+                    <li><a href="#demo">インタラクティブデモ</a></li>
+                    <li><a href="#resources">学習リソース</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1>JavaScript マスターへの道</h1>
+                <p>モダンなWeb開発に不可欠なJavaScriptを、基礎から応用まで徹底解説！</p>
+            </div>
+        </section>
+
+        <section id="intro">
+            <div class="container">
+                <h2>はじめに</h2>
+                <p>JavaScriptは、Webブラウザで動作するスクリプト言語として生まれ、今や様々な環境で利用される汎用的なプログラミング言語となりました。このサイトでは、JavaScriptの基礎から最新のトレンドまでを分かりやすく解説します。</p>
+                <img src="js-code.jpg" alt="JavaScriptコードのサンプル" class="feature-image">
+            </div>
+        </section>
+
+        <section id="basics">
+            <div class="container">
+                <h2>基礎知識</h2>
+                <p>JavaScriptの基本を押さえましょう。以下は重要な基礎概念です：</p>
+                <ul>
+                    <li>変数と定数</li>
+                    <li>データ型</li>
+                    <li>制御構造（if文、ループ）</li>
+                    <li>関数</li>
+                    <li>オブジェクトと配列</li>
+                </ul>
+                <pre><code class="language-javascript">
+// 変数宣言の例
+let message = "Hello, JavaScript!";
+const PI = 3.14159;
+
+// 関数の例
+function greet(name) {
+    return `こんにちは、${name}さん！`;
+}
+
+console.log(greet("太郎")); // 出力: こんにちは、太郎さん！
+                </code></pre>
+            </div>
+        </section>
+
+        <section id="advanced">
+            <div class="container">
+                <h2>高度なトピック</h2>
+                <p>基礎を押さえたら、次はこれらの高度なトピックに挑戦しましょう：</p>
+                <ol>
+                    <li>非同期プログラミング（Promises, async/await）</li>
+                    <li>モジュールシステム</li>
+                    <li>クラスとオブジェクト指向プログラミング</li>
+                    <li>関数型プログラミング</li>
+                    <li>WebAPIの活用</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="demo">
+            <div class="container">
+                <h2>インタラクティブデモ</h2>
+                <p>以下のデモで、JavaScriptの力を体験してみましょう！</p>
+                <div id="interactive-demo">
+                    <button id="changeColorBtn">色を変更</button>
+                    <div id="colorBox"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources">
+            <div class="container">
+                <h2>学習リソース</h2>
+                <p>さらに学習を深めるための素晴らしいリソースをご紹介します：</p>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript" target="_blank">MDN Web Docs - JavaScript</a></li>
+                    <li><a href="https://ja.javascript.info/" target="_blank">JavaScript.info</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 JavaScript マスターへの道. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script\script.js"></script>
+</body>
+</html>
