@@ -3,23 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript マスターへの道 - 技術解説とチュートリアル</title>
+    <title>Reactの特徴と活用方法 - 最新のWeb開発技術解説</title>
     <link rel="stylesheet" href="css\main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 </head>
 <body>
     <header>
         <nav id="main-nav">
             <div class="container">
-                <img src="logo.png" alt="JavaScript マスターへの道 ロゴ" class="logo">
-                <ul>
+                <img src="img/reactjs_logo_icon_170805.png" alt="React Logo" class="logo">
+                <ul class="nav-links">
                     <li><a href="#intro">はじめに</a></li>
-                    <li><a href="#basics">基礎知識</a></li>
-                    <li><a href="#advanced">高度なトピック</a></li>
-                    <li><a href="#demo">インタラクティブデモ</a></li>
-                    <li><a href="#resources">学習リソース</a></li>
+                    <li><a href="#features">特徴</a></li>
+                    <li><a href="#components">コンポーネント</a></li>
+                    <li><a href="#state-props">State & Props</a></li>
+                    <li><a href="#hooks">Hooks</a></li>
+                    <li><a href="#performance">パフォーマンス最適化</a></li>
+                    <li><a href="#ecosystem">エコシステム</a></li>
+                    <li><a href="#best-practices">ベストプラクティス</a></li>
                 </ul>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </nav>
     </header>
@@ -27,85 +39,143 @@
     <main>
         <section id="hero">
             <div class="container">
-                <h1>JavaScript マスターへの道</h1>
-                <p>モダンなWeb開発に不可欠なJavaScriptを、基礎から応用まで徹底解説！</p>
+                <h1>Reactの特徴と活用方法</h1>
+                <p>最新のWeb開発技術を駆使したインタラクティブUIの構築</p>
             </div>
         </section>
 
-        <section id="intro">
+        <section id="intro" class="fade-in">
             <div class="container">
                 <h2>はじめに</h2>
-                <p>JavaScriptは、Webブラウザで動作するスクリプト言語として生まれ、今や様々な環境で利用される汎用的なプログラミング言語となりました。このサイトでは、JavaScriptの基礎から最新のトレンドまでを分かりやすく解説します。</p>
-                <img src="js-code.jpg" alt="JavaScriptコードのサンプル" class="feature-image">
+                <p>Reactは、Facebookが開発したJavaScriptライブラリで、ユーザーインターフェイスを効率的に構築するために設計されています。本サイトでは、Reactの主要な特徴と、それらを活用してモダンで高性能なWebアプリケーションを開発する方法について詳しく解説します。</p>
+                <div id="react-version-demo"></div>
             </div>
         </section>
 
-        <section id="basics">
+        <section id="features" class="fade-in">
             <div class="container">
-                <h2>基礎知識</h2>
-                <p>JavaScriptの基本を押さえましょう。以下は重要な基礎概念です：</p>
+                <h2>Reactの主要な特徴</h2>
                 <ul>
-                    <li>変数と定数</li>
-                    <li>データ型</li>
-                    <li>制御構造（if文、ループ）</li>
-                    <li>関数</li>
-                    <li>オブジェクトと配列</li>
+                    <li>仮想DOM（Virtual DOM）</li>
+                    <li>コンポーネントベースのアーキテクチャ</li>
+                    <li>単方向データフロー</li>
+                    <li>JSX</li>
+                    <li>豊富なエコシステム</li>
                 </ul>
-                <pre><code class="language-javascript">
-// 変数宣言の例
-let message = "Hello, JavaScript!";
-const PI = 3.14159;
+                <div id="feature-demo"></div>
+            </div>
+        </section>
 
-// 関数の例
-function greet(name) {
-    return `こんにちは、${name}さん！`;
+        <section id="components" class="fade-in">
+            <div class="container">
+                <h2>Reactコンポーネント</h2>
+                <p>Reactの中心的な概念であるコンポーネントについて学びましょう。</p>
+                <h3>関数コンポーネント</h3>
+                <pre><code class="language-jsx">
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
 }
-
-console.log(greet("太郎")); // 出力: こんにちは、太郎さん！
                 </code></pre>
+                <h3>クラスコンポーネント</h3>
+                <pre><code class="language-jsx">
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+                </code></pre>
+                <div id="component-demo"></div>
             </div>
         </section>
 
-        <section id="advanced">
+        <section id="state-props" class="fade-in">
             <div class="container">
-                <h2>高度なトピック</h2>
-                <p>基礎を押さえたら、次はこれらの高度なトピックに挑戦しましょう：</p>
-                <ol>
-                    <li>非同期プログラミング（Promises, async/await）</li>
-                    <li>モジュールシステム</li>
-                    <li>クラスとオブジェクト指向プログラミング</li>
-                    <li>関数型プログラミング</li>
-                    <li>WebAPIの活用</li>
-                </ol>
+                <h2>State & Props</h2>
+                <p>ReactにおけるStateとPropsの概念と、それらの使い分けについて解説します。</p>
+                <div id="state-props-demo"></div>
             </div>
         </section>
 
-        <section id="demo">
+        <section id="hooks" class="fade-in">
             <div class="container">
-                <h2>インタラクティブデモ</h2>
-                <p>以下のデモで、JavaScriptの力を体験してみましょう！</p>
-                <div id="interactive-demo">
-                    <button id="changeColorBtn">色を変更</button>
-                    <div id="colorBox"></div>
-                </div>
+                <h2>React Hooks</h2>
+                <p>関数コンポーネントでステート管理やライフサイクルを扱うためのHooksを詳しく見ていきます。</p>
+                <h3>useState</h3>
+                <pre><code class="language-jsx">
+const [count, setCount] = useState(0);
+                </code></pre>
+                <h3>useEffect</h3>
+                <pre><code class="language-jsx">
+useEffect(() => {
+  document.title = `You clicked ${count} times`;
+}, [count]);
+                </code></pre>
+                <div id="hooks-demo"></div>
             </div>
         </section>
 
-        <section id="resources">
+        <section id="performance" class="fade-in">
             <div class="container">
-                <h2>学習リソース</h2>
-                <p>さらに学習を深めるための素晴らしいリソースをご紹介します：</p>
+                <h2>パフォーマンス最適化</h2>
+                <p>Reactアプリケーションのパフォーマンスを最適化するテクニックを紹介します。</p>
                 <ul>
-                    <li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript" target="_blank">MDN Web Docs - JavaScript</a></li>
-                    <li><a href="https://ja.javascript.info/" target="_blank">JavaScript.info</a></li>
+                    <li>メモ化（useMemo, useCallback）</li>
+                    <li>React.memo</li>
+                    <li>Code Splitting</li>
                 </ul>
+                <div id="performance-demo"></div>
+            </div>
+        </section>
+
+        <section id="ecosystem" class="fade-in">
+            <div class="container">
+                <h2>Reactエコシステム</h2>
+                <p>Reactと相性の良いライブラリやツールを紹介します。</p>
+                <ul>
+                    <li>Redux（状態管理）</li>
+                    <li>React Router（ルーティング）</li>
+                    <li>Styled Components（スタイリング）</li>
+                    <li>Next.js（サーバーサイドレンダリあング）</li>
+                </ul>
+                <div id="ecosystem-demo"></div>
+            </div>
+        </section>
+
+        <section id="best-practices" class="fade-in">
+            <div class="container">
+                <h2>Reactベストプラクティス</h2>
+                <p>効率的で保守性の高いReactアプリケーションを開発するためのベストプラクティスを紹介します。</p>
+                <ol>
+                    <li>適切なコンポーネント分割</li>
+                    <li>Propsの型チェック</li>
+                    <li>副作用の適切な管理</li>
+                    <li>パフォーマンス最適化の適用</li>
+                    <li>テストの重要性</li>
+                </ol>
+                <div id="best-practices-demo"></div>
+            </div>
+        </section>
+
+        <!-- Reactベストプラクティスセクションの後に追加 -->
+        <section id="javascript-editor" class="fade-in">
+            <div class="container">
+                <h2>JavaScriptエディタ</h2>
+                <div id="js-editor"></div>
+            </div>
+        </section>
+
+        <section id="conclusion" class="fade-in">
+            <div class="container">
+                <h2>まとめ</h2>
+                <p>Reactは強力で柔軟なライブラリであり、適切に活用することで高品質なWebアプリケーションを効率的に開発できます。本サイトで紹介した特徴や手法を理解し、実践することで、よりよいReactアプリケーションの開発が可能になります。</p>
+                <p><strong>本コンテンツの作成時間（HTML/CSS/JavaScriptの設計・実装を含む）:約10時間</strong></p>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 JavaScript マスターへの道. All rights reserved.</p>
+            <p>&copy; 2024 React学習ガイド. All rights reserved.</p>
         </div>
     </footer>
 
