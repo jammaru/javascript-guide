@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reactの特徴と活用方法 - 最新のWeb開発技術解説</title>
-    <link rel="stylesheet" href="css\main.css">
+    <title>Reactの包括的ガイド：特徴、メリット、活用事例</title>
+    <link rel="stylesheet" href="css/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
@@ -16,7 +16,7 @@
     <header>
         <nav id="main-nav">
             <div class="container">
-                <img src="img\React.png" alt="React Logo" class="logo">
+                <img src="img/React.png" alt="React Logo" class="logo">
             </div>
         </nav>
     </header>
@@ -24,8 +24,8 @@
     <main>
         <section id="hero">
             <div class="container">
-                <h1>Reactの特徴と活用方法</h1>
-                <p>最新のWeb開発技術を駆使したインタラクティブUIの構築</p>
+                <h1>Reactの包括的ガイド：特徴、メリット、活用事例</h1>
+                <p>最新のWeb開発技術を駆使したインタラクティブUIの構築から、実践的な活用方法まで</p>
             </div>
         </section>
 
@@ -77,7 +77,7 @@
         <section id="advantages" class="fade-in">
             <div class="container">
                 <h2>Reactのメリット</h2>
-                <p>Reactを使用することで、開発者は以下のようなメリットを享受できます。</p>
+                <p>Reactを使用することで、開発者は以下のようなメリットを享受できます：</p>
                 <ul>
                     <li>
                         <h3>高いパフォーマンス</h3>
@@ -173,7 +173,9 @@ useEffect(() => {
                 </code></pre>
                 <p>この例では、countの値が変わるたびにドキュメントのタイトルが更新されます。第二引数の配列（依存配列）に[count]を指定することで、countが変更された時のみeffectが実行されます。</p>
                 <h3>その他のHooks</h3>
-                <p>Reactは他にも多くの組み込みHookを提供しています。</p>
+                <p>React
+
+は他にも多くの組み込みHookを提供しています：</p>
                 <ul>
                     <li><strong>useContext</strong>: Reactのコンテキストを簡単に利用するためのHook</li>
                     <li><strong>useReducer</strong>: 複雑な状態ロジックを管理するためのHook</li>
@@ -219,8 +221,19 @@ const MemoizedComponent = React.memo(function MyComponent(props) {
                     <li>
                         <h3>コード分割（Code Splitting）</h3>
                         <p>アプリケーションを小さな塊に分割し、必要な時にのみ読み込むことで、初期ロード時間を短縮します。React.lazyとSuspenseを使用することで、簡単に実装できます。</p>
+                        <pre><code class="language-jsx">
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+function MyComponent() {
+  return (
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <OtherComponent />
+    </React.Suspense>
+  );
+}
+                        </code></pre>
                     </li>
-                
+                </ul>
                 <p>これらの最適化テクニックを適切に組み合わせることで、Reactアプリケーションのパフォーマンスを大幅に向上させることができます。ただし、過剰な最適化は避け、必要な箇所にのみ適用することが重要です。</p>
                 <div id="performance-demo"></div>
             </div>
@@ -254,7 +267,27 @@ let store = createStore(counter);
                     <li>
                         <h3>React Router（ルーティング）</h3>
                         <p>React Routerは、シングルページアプリケーション（SPA）でのナビゲーションを実現します。URLに基づいて適切なコンポーネントを表示し、ブラウザの履歴管理も行います。</p>
-                        
+                        <pre><code class="language-jsx">
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+          </ul>
+        </nav>
+
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+      </div>
+    </Router>
+  );
+}
+                        </code></pre>
                     </li>
                     <li>
                         <h3>Styled Components（スタイリング）</h3>
@@ -285,7 +318,23 @@ function App() {
                     <li>
                         <h3>Next.js（サーバーサイドレンダリング）</h3>
                         <p>Next.jsは、Reactアプリケーションのサーバーサイドレンダリングを簡単に実現するフレームワークです。SEO対策やパフォーマンス向上に効果的で、開発環境のセットアップも容易です。</p>
-                        
+                        <pre><code class="language-jsx">
+// pages/index.js
+import Link from 'next/link'
+
+function HomePage() {
+  return (
+    <div>
+      <h1>Welcome to Next.js!</h1>
+      <Link href="/about">
+        <a>About Page</a>
+      </Link>
+    </div>
+  )
+}
+
+export default HomePage
+                        </code></pre>
                     </li>
                 </ul>
                 <p>これらのツールを適切に組み合わせることで、Reactの機能を拡張し、より強力で柔軟なアプリケーションを構築することができます。プロジェクトの要件に応じて、必要なツールを選択し、統合することが重要です。</p>
@@ -301,7 +350,29 @@ function App() {
                     <li>
                         <h3>適切なコンポーネント分割</h3>
                         <p>機能ごとに適切にコンポーネントを分割することで、コードの再利用性が高まり、保守性も向上します。単一責任の原則を意識し、一つのコンポーネントが一つの役割のみを担うようにしましょう。</p>
-                        
+                        <pre><code class="language-jsx">
+// 良い例
+function UserProfile({ user }) {
+  return (
+    <div>
+      <UserAvatar user={user} />
+      <UserInfo user={user} />
+    </div>
+  );
+}
+
+// 避けるべき例
+function UserProfile({ user }) {
+  return (
+    <div>
+      <img src={user.avatar} alt={user.name} />
+      <h2>{user.name}</h2>
+      <p>{user.bio}</p>
+      {/* さらに多くのユーザー情報 */}
+    </div>
+  );
+}
+                        </code></pre>
                     </li>
                     <li>
                         <h3>Propsの型チェック</h3>
@@ -351,109 +422,4 @@ test('ユーザー名が正しく表示される', () => {
                         </code></pre>
                     </li>
                 </ol>
-                <p>これらのベストプラクティスを意識して開発を進めることで、より保守性が高く、効率的なReactアプリケーションを構築することができます。</p>
-                <div id="best-practices-demo"></div>
-            </div>
-        </section>
-
-        <section id="use-cases" class="fade-in">
-            <div class="container">
-                <h2>Reactの具体的な活用事例</h2>
-                <div class="image-container">
-                    <img src="img\facebook.png" alt="React development" class="feature-image" width="300" height="">
-                </div>
-                <p>Reactは様々な分野で活用されています。ここでは、実際のビジネスシーンでどのようにReactが使われているかを紹介します。</p>
-                <ul>
-                    <li>
-                        <h3>1. 大規模なWebアプリケーション開発</h3>
-                        <p>Facebookなどの大規模SNSやEコマースサイトでは、複雑なUIと大量のデータを効率的に管理するためにReactが使用されています。コンポーネントベースのアーキテクチャにより、大規模なアプリケーションでも保守性を保つことができます。</p>
-                    </li>
-                    <li>
-                        <h3>2. シングルページアプリケーション（SPA）開発</h3>
-                        <p>GmailやGoogle Mapsなどのようなシングルページアプリケーションの開発にReactは適しています。ページ全体をリロードすることなく、スムーズな遷移と高速なユーザー体験を提供します。</p>
-                    </li>
-                    <li>
-                        <h3>3. ビジネスチャットツールのUI開発</h3>
-                        <p>SlackやChatworkのようなビジネスチャットツールでは、リアルタイムなメッセージ送受信を単一の画面で実現するためにReactが使用されています。Reactの効率的な更新メカニズムにより、スムーズなチャット体験を提供しています。</p>
-                    </li>
-                    <li>
-                        <h3>4. ECサイトの構築</h3>
-                        <p>商品画像をトップページに一覧表示し、そのままECサイトとしても機能させるSPAの開発にReactが活用されています。処理速度や周辺ライブラリの充実度から、多くのECサイトでReactが選択されています。</p>
-                    </li>
-                    <li>
-                        <h3>5. データ可視化ダッシュボード</h3>
-                        <p>複雑なデータを視覚的に表現するダッシュボードの開発にもReactが使用されています。D3.jsなどのデータ可視化ライブラリとの組み合わせにより、インタラクティブで動的なチャートやグラフを実現しています。</p>
-                    </li>
-                </ul>
-                <p>これらの事例から分かるように、Reactは単にWebサイトを作るだけでなく、複雑で動的なWebアプリケーションの開発に特に強みを発揮します。</p>
-            </div>
-        </section>
-
-        <section id="learning-react" class="fade-in">
-            <div class="container">
-                <h2>Reactを学ぶ際のポイント</h2>
-                <p>Reactを効果的に学ぶためのポイントをいくつか紹介します。</p>
-                <ol>
-                    <li>
-                        <h3>JavaScriptの基礎を固める</h3>
-                        <p>ReactはJavaScriptライブラリであるため、JavaScriptの基本をしっかりと理解していることが重要です。特に、ES6以降の新しい構文（アロー関数、分割代入、スプレッド演算子など）に慣れておくと良いでしょう。</p>
-                        <a href="https://prog-8.com/courses/es6" target="_blank">
-                            <button style="padding: 10px 20px; background-color: #61dafb; border: none; color: white; font-size: 16px; cursor: pointer;">
-                                ここから学べる
-                            </button>
-                        </a>
-                    </li>
-                    <li>
-                        <h3>公式ドキュメントを活用する</h3>
-                        <p>Reactの<a href="https://ja.react.dev/">公式ドキュメント</a>は非常に充実しています。特に、チュートリアルやメインコンセプトのセクションは、Reactの基本を理解するのに役立ちます。</p>
-                    </li>
-                    <li>
-                        <h3>手を動かして学ぶ</h3>
-                        <p>理論を学ぶだけでなく、実際にコードを書いて小さなプロジェクトを作ることが重要です。Create React Appを使って簡単にReactプロジェクトを始めることができます。</p>
-                    </li>
-                    <li>
-                        <h3>コンポーネント思考を身につける</h3>
-                        <p>Reactの強みの一つは再利用可能なコンポーネントです。UIをどのようにコンポーネントに分割するか考える習慣をつけましょう。</p>
-                    </li>
-                    <li>
-                        <h3>状態管理を理解する</h3>
-                        <p>Reactのstateとpropsの概念、そしてuseStateやuseEffectなどのHooksの使い方をしっかりと理解することが重要です。大規模なアプリケーションでは、ReduxやContext APIなどの状態管理ツールも学ぶと良いでしょう。</p>
-                    </li>
-                    <li>
-                        <h3>コミュニティリソースを活用する</h3>
-                        <p>ReactはStackOverflowやGitHubなどで活発なコミュニティがあります。分からないことがあれば、これらのプラットフォームで質問したり、他の人の質問と回答を参考にしたりするのも効果的です。</p>
-                    </li>
-                </ol>
-                <p>Reactの学習には時間がかかりますが、これらのポイントを意識しながら継続的に学習することで、効率的にスキルを向上させることができます。</p>
-            </div>
-        </section>
-
-        <section id="conclusion" class="fade-in">
-            <div class="container">
-                <h2>まとめ</h2>
-                <p>Reactは強力で柔軟なJavaScriptライブラリであり、適切に活用することで高品質なWebアプリケーションを効率的に開発できます。その主要な特徴である仮想DOM、コンポーネントベースのアーキテクチャ、JSX、そして豊富なエコシステムは、モダンなWeb開発において大きな強みとなっています。</p>
-                <p>Reactを使用することで、開発者は以下のようなメリットを享受できます：</p>
-                <ul>
-                    <li>高いパフォーマンスと効率的な更新メカニズム</li>
-                    <li>再利用可能なコンポーネントによる開発効率の向上</li>
-                    <li>大規模アプリケーションの管理のしやすさ</li>
-                    <li>豊富なツールとライブラリによる拡張性</li>
-                    <li>活発なコミュニティサポート</li>
-                </ul>
-                <p>一方で、Reactの学習曲線やセットアップの複雑さなど、いくつかの課題もあります。しかし、これらの課題は適切な学習方法と実践を通じて克服することができます。</p>
-                <p>Reactは現在、フロントエンド開発において主要な技術の一つとなっており、その需要は今後も高まると予想されます。Web開発者にとって、Reactのスキルを習得することは、キャリアの選択肢を広げ、最新のWeb技術に触れる良い機会となるでしょう。</p>
-                <p>本ガイドで紹介した特徴や手法を理解し、実践することで、よりよいReactアプリケーションの開発が可能になります。Reactの世界は常に進化し続けていますので、継続的な学習と実践を通じて、最新のトレンドやベストプラクティスをキャッチアップしていくことが重要です。</p>
-                <p><strong>本コンテンツの作成時間（HTML/CSS/JavaScriptの設計・実装を含む）:約15時間</strong></p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 React学習ガイド. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script/script.js"></script>
-</body>
-</html>
+                <p>これらのベストプラ
