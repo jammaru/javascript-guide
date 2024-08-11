@@ -76,10 +76,24 @@ class Welcome extends React.Component {
             </div>
         </section>
 
+
         <section id="state-props" class="fade-in">
             <div class="container">
                 <h2>State & Props</h2>
                 <p>ReactにおけるStateとPropsの概念と、それらの使い分けについて解説します。</p>
+                <h3>State</h3>
+                <p>Stateはコンポーネント内で管理される可変のデータです。コンポーネントの再レンダリングをトリガーします。</p>
+                <pre><code class="language-jsx">
+        const [count, setCount] = useState(0);
+                </code></pre>
+                <h3>Props</h3>
+                <p>Propsは親コンポーネントから子コンポーネントに渡されるデータです。読み取り専用で、子コンポーネント内で直接変更することはできません。</p>
+                <pre><code class="language-jsx">
+        function Welcome(props) {
+          return <h1>Hello, {props.name}</h1>;
+        }
+                </code></pre>
+                <p>StateとPropsを適切に使い分けることで、効率的なデータフローとコンポーネント設計が可能になります。</p>
                 <div id="state-props-demo"></div>
             </div>
         </section>
